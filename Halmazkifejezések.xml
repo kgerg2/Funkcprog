@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head>
+<title>Halmazkifejezések</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<link rel="shortcut icon" href="icon.ico" />
+<script src="common_en.js" charset="utf-8" type="text/javascript"></script> 
+<link rel="stylesheet" href="common.css" type="text/css" />
+</head>
+<body onload="javascript:resetForms(); javascript:slidy_init();">
+<div><h1 class="cover">Halmazkifejezések</h1>
+<div id="info"></div>
+<ul>
+<li><a href="#halmazkifejezések">Halmazkifejezések</a></li>
+<li><a href="#feladat-a-2-hatványai">Feladat: A 2 hatványai [*]</a></li>
+<li><a href="#feladat-az-első-10-négyzetszám-kétszerese">Feladat: Az első 10 négyzetszám kétszerese</a></li>
+<li><a href="#feladat-false-és-true-felváltva">Feladat: <code>False</code> és <code>True</code> felváltva</a></li>
+<li><a href="#feladat-nagy-2-hatvány-keresés">Feladat: Nagy 2 hatvány keresés [*]</a></li>
+<li><a href="#feladat-1024-1000">Feladat: 1024 &gt; 1000, …</a></li>
+<li><a href="#feladat-60-osztói">Feladat: 60 osztói</a></li>
+<li><a href="#feladat-60-osztóinak-száma">Feladat: 60 osztóinak száma</a></li>
+<li><a href="#feladat-prímvizsgálat">Feladat: Prímvizsgálat [*]</a></li>
+<li><a href="#párok">Párok</a></li>
+<li><a href="#feladat-órák-és-percek">Feladat: Órák és percek</a></li>
+<li><a href="#feladat-dominók">Feladat: Dominók [*]</a></li>
+<li><a href="#feladat-és-és-vagy-kötési-erőssége">Feladat: ÉS és VAGY kötési erőssége</a></li>
+<li><a href="#feladat-hónapok-és-napok">Feladat: Hónapok és napok [*]</a></li>
+<li><a href="#cipzározás">Cipzározás</a></li>
+<li><a href="#feladat-sorszámozás">Feladat: Sorszámozás [*]</a></li>
+<li><a href="#feladatok-végtelen-listákkal">Feladatok végtelen listákkal</a></li>
+<li><a href="#feladat-az-összes-természetes-számpár">Feladat: Az összes természetes számpár</a></li>
+<li><a href="#feladat-1-2-2-3-3-3">Feladat: 1, 2, 2, 3, 3, 3, … [*]</a></li>
+<li><a href="#feladat-1-2-1-2-3-2-1">Feladat: 1, 2, 1, 2, 3, 2, 1, … [*]</a></li>
+<li><a href="#feladat-csillagok">Feladat: Csillagok [*]</a></li>
+<li><a href="#feladat-négyzetszámok-elhagyása">Feladat: Négyzetszámok elhagyása</a></li>
+<li><a href="#feladat-1121231234">Feladat: 1,1,2,1,2,3,1,2,3,4,…</a></li>
+<li><a href="#feladat-010-101210-1-2-10123210-1">Feladat: 0,1,0,-1,0,1,2,1,0,-1,-2,-1,0,1,2,3,2,1,0,-1,…</a></li>
+<li><a href="#feladat-a-pi-közelítése-leibniz-féle-sorral">Feladat: A <span class="math inline"><em>π</em></span> közelítése Leibniz-féle sorral</a></li>
+<li><a href="#feladat-számtani-sorozatok-keresése">Feladat: Számtani sorozatok keresése</a></li>
+</ul>
+</div>
+<section id="halmazkifejezések" class="level1">
+<h1>Halmazkifejezések</h1>
+<p>Matematikai példakép: { n<sup>2</sup> | n ∈ N, n páros }</p>
+<p>Haskellben:</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','b05fd0212d9012cad02ae63a3ddd29c1','b05fd0212d9012cad02ae63a3ddd29c1');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tareab05fd0212d9012cad02ae63a3ddd29c1" value="[ n^2 | n &lt;- [1..], even n ]" /><br /><div class="answer" id="resb05fd0212d9012cad02ae63a3ddd29c1"><code class="result">[4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784,
+ 900, 1024, 1156, 1296, 1444, 1600, 1764, 1936, 2116, 2304, 2500,
+ 2704, 2916, 3136, 3364, 3600, 3844, 4096, 4356, 4624, 4900, 5184,
+ 5476, 5776, 6084, 6400, 6724, 7056, 7396, 7744, 8100, 8464, 8836,
+ 9216, 9604, 10000, 10404, 10816, 11236, 11664, 12100, 12544, 12996,
+ 13456, 13924, 14400, 14884, 15376, 15876, 16384, 16900, 17424,
+ 17956, 18496, 19044, 19600, 20164, 20736, 21316, 21904, 22500,
+ 23104, 23716, 24336, 24964, 25600, 26244, 26896, 27556, 28224,
+ 28900, 29584, 30276, 30976, 31684, 32400, 33124, 33856, 34596,
+ 35344, 36100, 36864, &#8230;, &#8230;&#8230;]</code><code> :: </code><code class="type">[Integer]</code></div></form>
+<div class="handout">
+<hr />
+<ul>
+<li>Tetszőlegesen sok generátor és feltétel.</li>
+<li>A halmazokkal ellentétben az elemekből több is lehet és számít a sorrend.</li>
+<li><p>A generátorokkal bevezetett új változók csak a generátortól jobbra láthatóak (és a <code>|</code> előtt).</p>
+<p>Tehát ez hibás:</p></li>
+</ul>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','e1e198916a9a34a3d0db29307f09f832','e1e198916a9a34a3d0db29307f09f832');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tareae1e198916a9a34a3d0db29307f09f832" value="[ n^2 | even n, n &lt;- [1..] ]" /><br /><div class="answer" id="rese1e198916a9a34a3d0db29307f09f832"><div class="error"><pre class="normal">&lt;interactive&gt;:1:14: error: Variable not in scope: n :: Integer
+</pre></div></div></form>
+</div>
+</section>
+<section id="feladat-a-2-hatványai" class="level1">
+<h1>Feladat: A 2 hatványai [*]</h1>
+<p>Állítsuk elő a 2 hatványait növekvő sorrendben 1-től 2<sup>10</sup>-ig!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_6ad3e46d4e4ba409f1cdf80f507cebf6.hs','6ad3e46d4e4ba409f1cdf80f507cebf6','6ad3e46d4e4ba409f1cdf80f507cebf6');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea6ad3e46d4e4ba409f1cdf80f507cebf6" value="" /><br /><div class="answer" id="res6ad3e46d4e4ba409f1cdf80f507cebf6"></div></form>
+</section>
+<section id="feladat-az-első-10-négyzetszám-kétszerese" class="level1">
+<h1>Feladat: Az első 10 négyzetszám kétszerese</h1>
+<p>Soroljuk fel az első 10 négyzetszám kétszeresét!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_b765f67ed1fcd32c87725aec9f1920b0.hs','b765f67ed1fcd32c87725aec9f1920b0','b765f67ed1fcd32c87725aec9f1920b0');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareab765f67ed1fcd32c87725aec9f1920b0" value="" /><br /><div class="answer" id="resb765f67ed1fcd32c87725aec9f1920b0"></div></form>
+</section>
+<section id="feladat-false-és-true-felváltva" class="level1">
+<h1>Feladat: <code>False</code> és <code>True</code> felváltva</h1>
+<p>Állítsunk elő olyan 10 hosszúságú listát, amely váltakozva tartalmazza a <code>False</code> és <code>True</code> értékeket!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_afe48de917c584c5fa6e0f50d78ddc17.hs','afe48de917c584c5fa6e0f50d78ddc17','afe48de917c584c5fa6e0f50d78ddc17');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareaafe48de917c584c5fa6e0f50d78ddc17" value="" /><br /><div class="answer" id="resafe48de917c584c5fa6e0f50d78ddc17"></div></form>
+</section>
+<section id="feladat-nagy-2-hatvány-keresés" class="level1">
+<h1>Feladat: Nagy 2 hatvány keresés [*]</h1>
+<p>Melyik legkisebb 2 hatvány nagyobb, mint 10<sup>20</sup>?</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_0d8a902daa58f55eabadba3db39dae01.hs','0d8a902daa58f55eabadba3db39dae01','0d8a902daa58f55eabadba3db39dae01');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea0d8a902daa58f55eabadba3db39dae01" value="" /><br /><div class="answer" id="res0d8a902daa58f55eabadba3db39dae01"></div></form>
+<p><em>Megjegyzés:</em> <code>l !! 0  ==  head l</code>.</p>
+</section>
+<section id="feladat-1024-1000" class="level1">
+<h1>Feladat: 1024 &gt; 1000, …</h1>
+<p>Melyik legkisebb <span class="math inline"><em>n</em></span> természetes számra igaz: 1024<sup>n</sup> &gt; 2 * 1000<sup>n</sup>?</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_e2d33851b9ebb58375ce4f5eec7eb88e.hs','e2d33851b9ebb58375ce4f5eec7eb88e','e2d33851b9ebb58375ce4f5eec7eb88e');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareae2d33851b9ebb58375ce4f5eec7eb88e" value="" /><br /><div class="answer" id="rese2d33851b9ebb58375ce4f5eec7eb88e"></div></form>
+</section>
+<section id="feladat-60-osztói" class="level1">
+<h1>Feladat: 60 osztói</h1>
+<p>Soroljuk fel a 60 osztóit!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_bda5b324ac17e2ee091ca882f37af70f.hs','bda5b324ac17e2ee091ca882f37af70f','bda5b324ac17e2ee091ca882f37af70f');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareabda5b324ac17e2ee091ca882f37af70f" value="" /><br /><div class="answer" id="resbda5b324ac17e2ee091ca882f37af70f"></div></form>
+</section>
+<section id="feladat-60-osztóinak-száma" class="level1">
+<h1>Feladat: 60 osztóinak száma</h1>
+<p>Hány osztója van a 60-nak?</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_51a6f02a7cd30b44c591e5571f264181.hs','51a6f02a7cd30b44c591e5571f264181','51a6f02a7cd30b44c591e5571f264181');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea51a6f02a7cd30b44c591e5571f264181" value="" /><br /><div class="answer" id="res51a6f02a7cd30b44c591e5571f264181"></div></form>
+</section>
+<section id="feladat-prímvizsgálat" class="level1">
+<h1>Feladat: Prímvizsgálat [*]</h1>
+<p>Prímszám-e az 123457?</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_56adfa40aaf9b490809cd0f83b9fef1d.hs','56adfa40aaf9b490809cd0f83b9fef1d','56adfa40aaf9b490809cd0f83b9fef1d');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea56adfa40aaf9b490809cd0f83b9fef1d" value="" /><br /><div class="answer" id="res56adfa40aaf9b490809cd0f83b9fef1d"></div></form>
+</section>
+<section id="párok" class="level1">
+<h1>Párok</h1>
+<p>A rendezett párok elemei lehetnek különböző típusúak:</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','9d66f8af694faf0c38d6b63ba694a4d1','9d66f8af694faf0c38d6b63ba694a4d1');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea9d66f8af694faf0c38d6b63ba694a4d1" value=":t (True, 'a')" /><br /><div class="answer" id="res9d66f8af694faf0c38d6b63ba694a4d1"><code class="result">(True, 'a')</code><code> :: </code><code class="type">(Bool, Char)</code></div></form>
+<p>Halmazkifejezés, amely párokat tartalmazó listát állít elő:</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','4cfd715989eebdbb690d5030e82582d0','4cfd715989eebdbb690d5030e82582d0');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea4cfd715989eebdbb690d5030e82582d0" value="[(a,b) | a&lt;-&quot;abc&quot;, b&lt;-[1,2]] " /><br /><div class="answer" id="res4cfd715989eebdbb690d5030e82582d0"><code class="result">[('a', 1), ('a', 2), ('b', 1), ('b', 2), ('c', 1), ('c', 2)]</code><code> :: </code><code class="type">[(Char, Integer)]</code></div></form>
+</section>
+<section id="feladat-órák-és-percek" class="level1">
+<h1>Feladat: Órák és percek</h1>
+<p>Állítsuk elő azt a listát, amely sorrendben tartalmazza az összes (óra, perc) párt!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_742a0f82ad57892a8e4c30b741446c55.hs','742a0f82ad57892a8e4c30b741446c55','742a0f82ad57892a8e4c30b741446c55');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea742a0f82ad57892a8e4c30b741446c55" value="" /><br /><div class="answer" id="res742a0f82ad57892a8e4c30b741446c55"></div></form>
+</section>
+<section id="feladat-dominók" class="level1">
+<h1>Feladat: Dominók [*]</h1>
+<p>Állítsuk elő azt a listát, amely párként tartalmazza az összes dominót: <code>[(0,0),(0,1),...,(0,9),(1,1),...,(9,9)]</code>!</p>
+<p>A <code>(1,0)</code> ne szerepeljen, mert az ugyanazt a dominót reprezentálja, mint a <code>(0,1)</code>.</p>
+<p><em>Megjegyzés:</em> A dominók legkevesebb nulla, legtöbb kilenc pontot tartalmazhatnak.</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_1c7c48aec0be23b3b7e0129343b839d3.hs','1c7c48aec0be23b3b7e0129343b839d3','1c7c48aec0be23b3b7e0129343b839d3');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea1c7c48aec0be23b3b7e0129343b839d3" value="" /><br /><div class="answer" id="res1c7c48aec0be23b3b7e0129343b839d3"></div></form>
+</section>
+<section id="feladat-és-és-vagy-kötési-erőssége" class="level1">
+<h1>Feladat: ÉS és VAGY kötési erőssége</h1>
+<p>Keressünk olyan a, b, c logikai értékeket, melyekre teljesül a következő logikai feltétel:</p>
+<pre><code>(a || (b &amp;&amp; c)) /= ((a || b) &amp;&amp; c)</code></pre>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_4e38c2884903e1fad221679e1f889aaf.hs','4e38c2884903e1fad221679e1f889aaf','4e38c2884903e1fad221679e1f889aaf');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea4e38c2884903e1fad221679e1f889aaf" value="" /><br /><div class="answer" id="res4e38c2884903e1fad221679e1f889aaf"></div></form>
+</section>
+<section id="feladat-hónapok-és-napok" class="level1">
+<h1>Feladat: Hónapok és napok [*]</h1>
+<p>Állítsuk elő azt a listát, amely sorrendben tartalmazza az összes (hónap, nap) párt egy 365 napos évben!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_56d3e25cceb5a666b5483701df869ca1.hs','56d3e25cceb5a666b5483701df869ca1','56d3e25cceb5a666b5483701df869ca1');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea56d3e25cceb5a666b5483701df869ca1" value="" /><br /><div class="answer" id="res56d3e25cceb5a666b5483701df869ca1"></div></form>
+<p><em>Segítség:</em> Használjuk az <code>elem</code> függvényt!</p>
+</section>
+<section id="cipzározás" class="level1">
+<h1>Cipzározás</h1>
+<p>Két listát az <code>zip</code> függvénnyel cipzározhatunk össze:</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','0e2ae9b0d12ae7b4cba27fdfdcdae31f','0e2ae9b0d12ae7b4cba27fdfdcdae31f');"><div class="answer" id="res0e2ae9b0d12ae7b4cba27fdfdcdae31f"><code class="result">zip</code><code> :: </code><code class="type">[a] -&gt; [b] -&gt; [(a, b)]</code></div></form>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','6fbb9f915271171d2c00edc6b81fff1c','6fbb9f915271171d2c00edc6b81fff1c');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea6fbb9f915271171d2c00edc6b81fff1c" value="zip &quot;abc&quot; [1,2]" /><br /><div class="answer" id="res6fbb9f915271171d2c00edc6b81fff1c"><code class="result">[('a', 1), ('b', 2)]</code><code> :: </code><code class="type">[(Char, Integer)]</code></div></form>
+<p><em>Megjegyzés:</em> Ha valamelyik lista elfogy, a cipzározás véget ér.</p>
+</section>
+<section id="feladat-sorszámozás" class="level1">
+<h1>Feladat: Sorszámozás [*]</h1>
+<p>Állítsuk elõ az <code>[(1,'a'),(2,'b'),</code>…<code>(</code>…<code>,'z')]</code> listát!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_b11cd44af9323e1d0deb953f546fb59e.hs','b11cd44af9323e1d0deb953f546fb59e','b11cd44af9323e1d0deb953f546fb59e');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareab11cd44af9323e1d0deb953f546fb59e" value="" /><br /><div class="answer" id="resb11cd44af9323e1d0deb953f546fb59e"></div></form>
+</section>
+<section id="feladatok-végtelen-listákkal" class="level1">
+<h1>Feladatok végtelen listákkal</h1>
+<p>Végtelen listák megnézésekor használjuk a <code>take</code> függvényt:</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','29e7157002926cb2e4029a77e477d37b','29e7157002926cb2e4029a77e477d37b');"><div class="answer" id="res29e7157002926cb2e4029a77e477d37b"><code class="result">take</code><code> :: </code><code class="type">Int -&gt; [a] -&gt; [a]</code></div></form>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','4f1bdd8d747ff65eb2089cba7105bbe1','4f1bdd8d747ff65eb2089cba7105bbe1');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea4f1bdd8d747ff65eb2089cba7105bbe1" value="take 6 [1,3..]" /><br /><div class="answer" id="res4f1bdd8d747ff65eb2089cba7105bbe1"><code class="result">[1, 3, 5, 7, 9, 11]</code><code> :: </code><code class="type">[Integer]</code></div></form>
+<p>Mi a különbség?</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','2d46f32876c0bb35c74152aa0e44c792','2d46f32876c0bb35c74152aa0e44c792');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea2d46f32876c0bb35c74152aa0e44c792" value="['a','b','c'] !! 0" /><br /><div class="answer" id="res2d46f32876c0bb35c74152aa0e44c792"></div></form>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','a3f7c6b096fd6164a0f7a8bde60602d5','a3f7c6b096fd6164a0f7a8bde60602d5');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tareaa3f7c6b096fd6164a0f7a8bde60602d5" value="take 1 ['a','b','c']" /><br /><div class="answer" id="resa3f7c6b096fd6164a0f7a8bde60602d5"></div></form>
+<p>Mi lesz ez?</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','d7a99fc506372fe16b711be4b71f41cc','d7a99fc506372fe16b711be4b71f41cc');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="taread7a99fc506372fe16b711be4b71f41cc" value="take 10 [[1..]]" /><br /><div class="answer" id="resd7a99fc506372fe16b711be4b71f41cc"></div></form>
+</section>
+<section id="feladat-az-összes-természetes-számpár" class="level1">
+<h1>Feladat: Az összes természetes számpár</h1>
+<p>Soroljuk fel a természetes számpárokat: <code>[(0,0),(0,1),(1,0),(0,2),(1,1),(2,0),</code> …<code>]</code>!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_b723b7c14ff5ffedad3589c6868364d5.hs','b723b7c14ff5ffedad3589c6868364d5','b723b7c14ff5ffedad3589c6868364d5');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareab723b7c14ff5ffedad3589c6868364d5" value="" /><br /><div class="answer" id="resb723b7c14ff5ffedad3589c6868364d5"></div></form>
+</section>
+<section id="feladat-1-2-2-3-3-3" class="level1">
+<h1>Feladat: 1, 2, 2, 3, 3, 3, … [*]</h1>
+<p>Állítsuk elõ a következõ listát: <code>[1,2,2,3,3,3,4,4,4,4,</code> …<code>]</code> ! Az i szám i-szer szerepel a listában.</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_b3498e2152e7c58d74104bddd15c0182.hs','b3498e2152e7c58d74104bddd15c0182','b3498e2152e7c58d74104bddd15c0182');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareab3498e2152e7c58d74104bddd15c0182" value="" /><br /><div class="answer" id="resb3498e2152e7c58d74104bddd15c0182"></div></form>
+</section>
+<section id="feladat-1-2-1-2-3-2-1" class="level1">
+<h1>Feladat: 1, 2, 1, 2, 3, 2, 1, … [*]</h1>
+<p>Próbáljuk ki a <code>concat</code> függvényt!</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','667335be9b5e0a39d3d7f39d306b339d','667335be9b5e0a39d3d7f39d306b339d');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tarea667335be9b5e0a39d3d7f39d306b339d" value=":t concat" /><br /><div class="answer" id="res667335be9b5e0a39d3d7f39d306b339d"><code class="result">concat</code><code> :: </code><code class="type">Foldable t =&gt; t [a] -&gt; [a]</code></div></form>
+<p>Állítsuk elő az 1,2,1,2,3,2,1,2,3,4,3,2,1,2,3,4,5,4,3,2,1,2,3,4,5,6,5,4,3,2,1,.. sorozatot!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_8eb95b5b8853d202b07e0333e07ef40c.hs','8eb95b5b8853d202b07e0333e07ef40c','8eb95b5b8853d202b07e0333e07ef40c');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea8eb95b5b8853d202b07e0333e07ef40c" value="" /><br /><div class="answer" id="res8eb95b5b8853d202b07e0333e07ef40c"></div></form>
+</section>
+<section id="feladat-csillagok" class="level1">
+<h1>Feladat: Csillagok [*]</h1>
+<p>Próbáljuk ki az <code>unwords</code> függvényt!</p>
+<form class="resetinterpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions.hs','ebb7133d446e6b7433ae39434b85c081','ebb7133d446e6b7433ae39434b85c081');"><code class="prompt">Test&gt; </code><input class="interpreter" type="text" size="80" id="tareaebb7133d446e6b7433ae39434b85c081" value=":t unwords" /><br /><div class="answer" id="resebb7133d446e6b7433ae39434b85c081"><code class="result">unwords</code><code> :: </code><code class="type">[String] -&gt; String</code></div></form>
+<p>Állítsuk elő a következő végtelen szöveget: <code>&quot;* ** *** **** *****</code>… !</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_29aa8af1112d839f979c9965e1d40c6c.hs','29aa8af1112d839f979c9965e1d40c6c','29aa8af1112d839f979c9965e1d40c6c');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea29aa8af1112d839f979c9965e1d40c6c" value="" /><br /><div class="answer" id="res29aa8af1112d839f979c9965e1d40c6c"></div></form>
+</section>
+<section id="feladat-négyzetszámok-elhagyása" class="level1">
+<h1>Feladat: Négyzetszámok elhagyása</h1>
+<p>Állítsuk elő azt a listát, amelyet úgy kapunk, hogy a természetes számokból elhagyjuk a négyzetszámokat!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_1b8921631ac844d9eb121537672b1bbc.hs','1b8921631ac844d9eb121537672b1bbc','1b8921631ac844d9eb121537672b1bbc');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea1b8921631ac844d9eb121537672b1bbc" value="" /><br /><div class="answer" id="res1b8921631ac844d9eb121537672b1bbc"></div></form>
+</section>
+<section id="feladat-1121231234" class="level1">
+<h1>Feladat: 1,1,2,1,2,3,1,2,3,4,…</h1>
+<p>Állítsuk elő az <code>[1,1,2,1,2,3,1,2,3,4,</code>…<code>]</code> listát!</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_825f882c7fa2e73767c9dad434468048.hs','825f882c7fa2e73767c9dad434468048','825f882c7fa2e73767c9dad434468048');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea825f882c7fa2e73767c9dad434468048" value="" /><br /><div class="answer" id="res825f882c7fa2e73767c9dad434468048"></div></form>
+</section>
+<section id="feladat-010-101210-1-2-10123210-1" class="level1">
+<h1>Feladat: 0,1,0,-1,0,1,2,1,0,-1,-2,-1,0,1,2,3,2,1,0,-1,…</h1>
+<p>Állítsuk elő a következő sorozatot: 0,1,0,-1,0,1,2,1,0,-1,-2,-1,0,1,2,3,2,1,0,-1, … !</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_e1b61e34cc71cd7f3aebd97dd8f67608.hs','e1b61e34cc71cd7f3aebd97dd8f67608','e1b61e34cc71cd7f3aebd97dd8f67608');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareae1b61e34cc71cd7f3aebd97dd8f67608" value="" /><br /><div class="answer" id="rese1b61e34cc71cd7f3aebd97dd8f67608"></div></form>
+</section>
+<section id="feladat-a-pi-közelítése-leibniz-féle-sorral" class="level1">
+<h1>Feladat: A <span class="math inline"><em>π</em></span> közelítése Leibniz-féle sorral</h1>
+<p>Írjunk olyan kifejezést, amely megadja <span class="math inline"><em>π</em></span> közelítő értékét a Leibniz-féle sor részleges előállításával! A képlet a következő:</p>
+<p><img src="Comprehensionsa5abf50a72f584c30655f4e0f2cb7762.png" alt="Comprehensionsa5abf50a72f584c30655f4e0f2cb7762.png" /></p>
+<p>Természetesen ezt mi csak közelítjük, így elég az első ezer elem összegét venni, majd az eredményt néggyel megszorozni.</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_727ce83df3bb92eb227187f87b3459ce.hs','727ce83df3bb92eb227187f87b3459ce','727ce83df3bb92eb227187f87b3459ce');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tarea727ce83df3bb92eb227187f87b3459ce" value="" /><br /><div class="answer" id="res727ce83df3bb92eb227187f87b3459ce"></div></form>
+<p><em>Segítség:</em> Először érdemes az <code>[1, -3, 5, -7, 9, -11, ... ]</code> végtelen listát előállítani. Majd vegyük ezen elemek reciprokát és adjuk ezeket össze!</p>
+</section>
+<section id="feladat-számtani-sorozatok-keresése" class="level1">
+<h1>Feladat: Számtani sorozatok keresése</h1>
+<p>Tekintsük a következő egyenleteket:</p>
+<p><img src="Comprehensions7ec75333755c6eea9c9b50ed035e82fe.png" alt="Comprehensions7ec75333755c6eea9c9b50ed035e82fe.png" /></p>
+<p>Az egyenletek bal oldalán olyan számtani sorozatok szerepelnek, amelyek összege egyenlő a sorozat első és utolsó elemének szorzatával.</p>
+<p>Állítsuk elő az összes ilyen sorozatot, az utolsó elem nagysága szerint növekvő sorrendben!</p>
+<p>Az ellenőrzéshez csak az első 6 sorozatot írjuk be.</p>
+<form class="interpreter" action="javascript:getOne('c=eval&amp;f=Comprehensions_a6cd9e180705d6686f812ef4dd9240c6.hs','a6cd9e180705d6686f812ef4dd9240c6','a6cd9e180705d6686f812ef4dd9240c6');"><code class="prompt">Solution&gt; </code><input class="interpreter" type="text" size="80" id="tareaa6cd9e180705d6686f812ef4dd9240c6" value="" /><br /><div class="answer" id="resa6cd9e180705d6686f812ef4dd9240c6"></div></form>
+<p><em>Segítség:</em> Használhatjuk a <code>List</code> modulban található <code>init</code> és <code>tails</code> függvényeket.</p>
+</section>
+</body>
+</html>
+
