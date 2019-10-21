@@ -1,0 +1,34 @@
+False || False = False
+_ || _ = True
+-- xor a b = a /= b
+xor = (/=)
+swap (a, b) = (b, a)
+mirrorX (a, b) = (a, -b)
+scale' a (x, y) = (a*x, a*y)
+mirrorP (x1, y1) (x2, y2) = (2*x1-x2, 2*y1-y2)
+distance (x1, y1) (x2, y2) = sqrt ((x1-x2)^2 + (y1-y2)^2)
+mul3 2 2 = 1
+mul3 x y = x * y
+replaceNewline '\n' = ' '
+replaceNewline x = x
+-- replaceNewlines s = [replaceNewline c | c <- s]
+replaceNewlines "" = ""
+replaceNewlines (x:xs) = (replaceNewline x) : (replaceNewlines xs)
+swap_a_az "a" = "az"
+swap_a_az "az" = "a"
+swap_a_az s = s
+swapAll_a_az s = unwords [swap_a_az w | w <- words s]
+--isEmpty [] = True
+--isEmpty _ = False
+--isSingleton [] = False
+--isSingleton (_:xs) = isEmpty xs
+isSingleton (x:[]) = True
+isSingleton _ = False
+toUpperFirst (c:s) = toUpper c : s
+toUpperFirsts s = unwords [toUpperFirst w | w <- words s]
+countOfAs s = length [w | w <- words s, w == "a"]
+distantPairs x = sum [1 | (a, b) <- x, abs (a-b) >= 2]
+everyFifth xs = [x | (i, x) <- zip [1..] xs, i `mod` 5 == 1]
+everyFifth a:b:c:d:e:xs = a:everyFifth xs
+everyFifth x:xs = [x]
+everyFifth _ = []
