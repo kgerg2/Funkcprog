@@ -1,0 +1,40 @@
+sum [] = 0
+sum (x:xs) = x + sum xs
+last [x] = x
+last (x:xs) = last xs
+init [_] = []
+init (x:xs) = x:init xs
+minimum [x] = x
+minimum (x:xs) = min x (minimum xs)
+concat [] = []
+concat (x:xs) = x ++ concat xs
+[] ++ x = x
+(y:ys) ++ x = y:(ys ++ x)
+merge x [] = x
+merge [] x = x
+merge (x:xs) (y:ys) = x:y:merge xs ys
+zip _ [] = []
+zip [] _ = []
+zip (x:xs) (y:ys) = (x, y) : zip xs ys
+isPrefixOf [] _ = True
+isPrefixOf _ [] = False
+isPrefixOf (x:xs) (y:ys) = x == y && isPrefixOf xs ys
+elem _ [] = False
+elem y (x:xs) = x == y || elem y xs
+nub [] = []
+nub (x:xs)
+ | elem x xs = nub xs
+ | otherwise = x : nub xs
+polinom [] _ = 0
+polinom (x:xs) y = x + y * polinom xs y
+runs _ [] = []
+runs x y = take x y : runs x (drop x y)
+slice [] _ = []
+slice (x:xs) y = take x y : slice xs (drop x y)
+every y (x:xs) = x:every y (drop (y-1) xs)
+every y _ = []
+qsort [] = []
+qsort (x:xs) = qsort [y | y <- xs, x > y] ++ [x] ++ qsort [y | y <- xs, x <= y]
+tails [] = [[]]
+tails (x:xs) = (x:xs):tails xs
+inits x = reverse (map reverse (tails (reverse x)))

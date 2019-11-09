@@ -27,8 +27,12 @@ isSingleton _ = False
 toUpperFirst (c:s) = toUpper c : s
 toUpperFirsts s = unwords [toUpperFirst w | w <- words s]
 countOfAs s = length [w | w <- words s, w == "a"]
+countOfAs s = sum [1 | "a" <- words s]
 distantPairs x = sum [1 | (a, b) <- x, abs (a-b) >= 2]
 everyFifth xs = [x | (i, x) <- zip [1..] xs, i `mod` 5 == 1]
+everyFifth xs = [x | (0, x) <- zip (cycle [0..4]) xs, i `mod` 5 == 1]
 everyFifth a:b:c:d:e:xs = a:everyFifth xs
 everyFifth x:xs = [x]
+everyFifth _ = []
+everyFifth (x:xs) = x:everyFifth (drop 4 xs)
 everyFifth _ = []
