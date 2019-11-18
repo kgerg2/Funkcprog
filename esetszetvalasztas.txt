@@ -1,0 +1,18 @@
+insert a l@(x:xs)
+ | a > x     = x:insert a xs
+ | otherwise = a:l
+insert a _   = [a]
+sortMerge a  [] = a
+sortMerge [] a  = a
+sortMerge a@(x:xs) b@(y:ys)
+ | x < y     = x : sortMerge b xs
+ | otherwise = y : sortMerge a ys
+combinations 0 _  = [[]]
+combinations _ [] = []
+combinations h (x:xs) = map (x:) (combinations (h-1) xs) ++ combinations h xs
+pac' _  0 = [[]]
+pac' [] _ = []
+pac' (x:xs) a
+ | x > a     = pac' xs a
+ | otherwise = map (x:) (pac' xs (a-x)) ++ pac' xs a
+pack' a b = reverse (pac' a b)
