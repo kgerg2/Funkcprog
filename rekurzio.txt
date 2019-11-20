@@ -13,14 +13,18 @@ concat (x:xs) = x ++ concat xs
 merge x [] = x
 merge [] x = x
 merge (x:xs) (y:ys) = x:y:merge xs ys
-zip _ [] = []
-zip [] _ = []
+merge [] x = x
+merge (x:xs) l = x : merge l xs
+-- zip _ [] = []
+-- zip [] _ = []
 zip (x:xs) (y:ys) = (x, y) : zip xs ys
+zip _ _ = []
 isPrefixOf [] _ = True
 isPrefixOf _ [] = False
 isPrefixOf (x:xs) (y:ys) = x == y && isPrefixOf xs ys
 elem _ [] = False
 elem y (x:xs) = x == y || elem y xs
+elem x = foldr (\a -> (x == a ||)) False
 nub [] = []
 nub (x:xs)
  | elem x xs = nub xs
@@ -34,7 +38,18 @@ slice (x:xs) y = take x y : slice xs (drop x y)
 every y (x:xs) = x:every y (drop (y-1) xs)
 every y _ = []
 qsort [] = []
-qsort (x:xs) = qsort [y | y <- xs, x > y] ++ [x] ++ qsort [y | y <- xs, x <= y]
+-- qsort (x:xs) = qsort [y | y <- xs, x > y] ++ [x] ++ qsort [y | y <- xs, x <= y]
+qsort (x:xs) = qsort (filter (x>) xs) ++ [x] ++ qsort (filter (x<=) xs)
 tails [] = [[]]
 tails (x:xs) = (x:xs):tails xs
+tails l@(_:xs) = l:tails xs
 inits x = reverse (map reverse (tails (reverse x)))
+deletions [] = []
+deletions [x] = [[]]
+deletions (x:xs) = xs : map (x:) (deletions xs)
+insertions x [] = [[x]]
+insertions y (x:xs) = (y:x:xs) : map (x:) (insertions y xs)
+permutations [] = [[]]
+permutations (x:xs) = concat (map (insertions x) (permutations xs))
+part 0 = [[]]
+part x = [x] : concat [map (y:) (part (x-y)) | y <- [x-1,x-2..1]]

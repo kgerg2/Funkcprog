@@ -1,0 +1,4 @@
+-- unzip l = (map fst l, map snd l)
+unzip [] = ([], [])
+unzip (x:xs) = add' x (unzip xs) where
+  add' (x, y) (xs, ys) = (x:xs, y:ys)
