@@ -2,3 +2,24 @@
 unzip [] = ([], [])
 unzip (x:xs) = add' x (unzip xs) where
   add' (x, y) (xs, ys) = (x:xs, y:ys)
+splitAt n l = spl n ([], l) where
+  spl n (l, []) = (l, [])
+  spl n (l, (x:xs))
+    | n > 0 = (\(a, b) -> (x:a, b))(spl (n-1) (l, xs))
+    | otherwise = (l, (x:xs))
+splitAt n l = (\(x, y) -> (reverse x, y))(spl n [] l) where
+  spl n l [] = (l, [])
+  spl n l (x:xs)
+    | n > 0 = spl (n-1) (x:l) xs
+    | otherwise = (l, (x:xs))
+splitAt _ [] = ([], [])
+splitAt n l@(x:xs)
+  | n > 0 = (x:l1, l2)
+  | otherwise = ([], l) where
+    (l1, l2) = splitAt (n-1) xs
+split (x:y:xs) = (\(a, b) -> (x:a, y:b))(split xs)
+split x = (x, [])
+msort [] = []
+msort [x] = [x]
+msort l = sortMerge (msort a) (msort b) where
+  (a, b) = split l

@@ -1,0 +1,36 @@
+map _ [] = []
+map f (x:xs) = f x : map f xs
+filter _ [] = []
+filter f (x:xs)
+  | f x       = x : filter f xs
+  | otherwise = filter f xs
+count _ [] = 0
+-- count f = length . filter f
+count f (x:xs)
+  | f x       = 1 + count f xs
+  | otherwise = count f xs
+takeWhile _ [] = []
+takeWhile f (x:xs)
+  | f x       = x : takeWhile f xs
+  | otherwise = []
+dropWhile _ [] = []
+dropWhile f l@(x:xs)
+  | f x       = dropWhile f xs
+  | otherwise = l
+span _ [] = ([], [])
+span f l@(x:xs)
+  | f x       = (\(l1, l2) -> (x:l1, l2))(span f xs)
+  | otherwise = ([], l)
+iterate f x = x : iterate f (f x)
+a $ b = a b
+all f l = foldr (&&) True $ map f l
+any f l = foldr (||) False $ map f l
+elem x l = any (x==) l
+filters n l = filter (`notElem` n) l
+zipWith f x y = map (\(a, b) -> f a b) $ zip x y
+differences l@(x:xs) = map (\(a, b) -> b-a) $ zip l xs
+differences _ = []
+fibPairs = fibP (0, 1) where
+  fibP (a, b) = (a, b):fibP (b, a+b)
+group [] = []
+group l@(x:xs) = (\(a, b) -> a : group b)(span (x==) l)
