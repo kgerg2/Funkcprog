@@ -1,3 +1,26 @@
+upperLower c
+  | isLower c = toUpper c
+  | isUpper c = toLower c
+  | otherwise = c
+digitToInt c
+  | c `elem` ['0'..'9'] = ord c - ord '0'
+  | c `elem` ['a'..'f'] = ord c - ord 'a' + 10
+  | c `elem` ['A'..'F'] = ord c - ord 'A' + 10
+sqr x = x * x
+x ^ n
+  | n == 0    = 1
+  | odd n     = x * x^(n-1)
+  | otherwise = sqr (x^(n `div` 2))
+toBin 0 = []
+toBin n = (n `mod` 2) : toBin (n `div` 2)
+drop _ [] = []
+drop n l@(x:xs)
+  | n > 0     = drop (n-1) xs
+  | otherwise = l
+take _ [] = []
+take n (x:xs)
+  | n > 0     = x : take (n-1) xs
+  | otherwise = []
 insert a l@(x:xs)
  | a > x     = x:insert a xs
  | otherwise = a:l
