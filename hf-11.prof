@@ -1,0 +1,36 @@
+	Thu Nov 28 23:00 2019 Time and Allocation Profiling Report  (Final)
+
+	   hf-11.exe +RTS -p -RTS
+
+	total time  =        2.66 secs   (2658 ticks @ 1000 us, 1 processor)
+	total alloc = 1,839,617,216 bytes  (excludes profiling overheads)
+
+COST CENTRE MODULE    SRC               %time %alloc
+
+step        Main      hf-11.hs:22:1-38   70.6  100.0
+initial     Main      hf-11.hs:10:1-18   12.9    0.0
+rule150     Main      hf-11.hs:19:1-33    8.4    0.0
+run         Main      hf-11.hs:25:1-30    8.0    0.0
+
+
+                                                                                      individual      inherited
+COST CENTRE       MODULE                   SRC                     no.     entries  %time %alloc   %time %alloc
+
+MAIN              MAIN                     <built-in>              106          0    0.0    0.0   100.0  100.0
+ CAF              GHC.IO.Handle.FD         <entire-module>         137          0    0.0    0.0     0.0    0.0
+ CAF              GHC.IO.Encoding.CodePage <entire-module>         128          0    0.0    0.0     0.0    0.0
+ CAF              GHC.IO.Encoding          <entire-module>         127          0    0.0    0.0     0.0    0.0
+ CAF              Main                     <entire-module>         113          0    0.0    0.0    99.9  100.0
+  main            Main                     hf-11.hs:37:1-55        212          1    0.0    0.0    99.9  100.0
+   run            Main                     hf-11.hs:25:1-30        215         15    0.0    0.0     0.0    0.0
+   display        Main                     hf-11.hs:35:1-66        214          1    0.0    0.0    99.9  100.0
+    displayState  Main                     hf-11.hs:32:1-53        216         15    0.0    0.0    99.9  100.0
+     displayCell  Main                     hf-11.hs:(28,1)-(29,23) 218        165    0.0    0.0     0.0    0.0
+     takeInterval Main                     hf-11.hs:13:1-36        217         15    0.0    0.0    99.9  100.0
+      run         Main                     hf-11.hs:25:1-30        219          0    8.0    0.0    99.9  100.0
+       step       Main                     hf-11.hs:22:1-38        221   39459409   70.6  100.0    91.9  100.0
+        initial   Main                     hf-11.hs:10:1-18        222   78918972   12.9    0.0    12.9    0.0
+        rule150   Main                     hf-11.hs:19:1-33        223   39459409    8.4    0.0     8.4    0.0
+       initial    Main                     hf-11.hs:10:1-18        220         11    0.0    0.0     0.0    0.0
+ main             Main                     hf-11.hs:37:1-55        213          0    0.1    0.0     0.1    0.0
+0    0.0    0.0     0.0    0.0
