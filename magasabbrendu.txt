@@ -23,14 +23,28 @@ span f l@(x:xs)
   | otherwise = ([], l)
 iterate f x = x : iterate f (f x)
 a $ b = a b
-all f l = foldr (&&) True $ map f l
+-- all f l = foldr (&&) True $ map f l
+all f = foldr (\e a -> f e && a) True
 any f l = foldr (||) False $ map f l
 elem x l = any (x==) l
-filters n l = filter (`notElem` n) l
+filters n = filter (`notElem` n)
 zipWith f x y = map (\(a, b) -> f a b) $ zip x y
-differences l@(x:xs) = map (\(a, b) -> b-a) $ zip l xs
+--differences l@(x:xs) = map (\(a, b) -> b-a) $ zip l xs
+differences l@(x:xs) = zipWith (-) xs l
 differences _ = []
-fibPairs = fibP (0, 1) where
-  fibP (a, b) = (a, b):fibP (b, a+b)
+--fibPairs = fibP (0, 1) where
+--  fibP (a, b) = (a, b):fibP (b, a+b)
+fibPairs = iterate (\(a, b) -> (b, a+b)) (0, 1)
 group [] = []
 group l@(x:xs) = (\(a, b) -> a : group b)(span (x==) l)
+compress = map (\(x:xs) -> (length xs+1, x)) . group
+pascalTriangle = iterate next_row [1] where
+  next_row l@(x:xs) = 1 : zipWith (+) l (xs ++ [0])
+sqrt a = improve a 1 where
+  improve a x
+    | abs ((x+a/x)/2 - x) < 1e-8 = x
+    | otherwise                  = improve a $ (x+a/x)/2
+uncurry a (b, c) = a b c
+--decompress = concat . map (\(i, x) -> take i $ repeat x)
+decompress = concatMap $ uncurry replicate
+weightedSum = sum . map (\(i, x) -> i * x)

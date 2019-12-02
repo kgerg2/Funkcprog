@@ -1,0 +1,13 @@
+(a . b) x = a (b x)
+numbersMadeOfOnes = iterate ((+1).(*10)) 1
+numbersMadeOfThrees = iterate ((+3).(*10)) 3
+numbersMadeOfThreesAndOne = iterate ((+21).(*10)) 1
+dropSpaces = dropWhile (==' ')
+trim = reverse . dropSpaces . reverse . dropSpaces
+maximumOfMinimums = minimum . maximum
+mapMap = map . map
+firstLetters = unwords . map (take 1) . words
+monogram = unwords . map (\(x:_) -> [x, '.']) . words
+reduce = map head . group
+uniq = reduce . sort
+repeated = map head . filter (\x -> length x > 1) . group . sort
