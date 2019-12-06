@@ -1,0 +1,88 @@
+	Fri Dec 06 20:59 2019 Time and Allocation Profiling Report  (Final)
+
+	   hf-12.exe +RTS -p -RTS
+
+	total time  =        0.04 secs   (41 ticks @ 1000 us, 1 processor)
+	total alloc = 561,998,936 bytes  (excludes profiling overheads)
+
+COST CENTRE       MODULE    SRC                       %time %alloc
+
+posToBlock        Main      hf-12.hs:13:1-45           34.1   28.1
+numsInBlock       Main      hf-12.hs:22:1-64           17.1   17.8
+isSudokuPuzzle.\  Main      hf-12.hs:31:41-94          17.1   17.3
+numsInRow.\       Main      hf-12.hs:7:51-56            9.8    0.0
+allUnique         Main      hf-12.hs:(27,1)-(28,54)     9.8   11.2
+numsInRow         Main      hf-12.hs:7:1-59             4.9    8.0
+isSudokuPuzzle    Main      hf-12.hs:(31,1)-(32,108)    4.9   10.2
+numsInCol         Main      hf-12.hs:10:1-59            2.4    5.0
+possibleNumsOnPos Main      hf-12.hs:51:1-94            0.0    2.0
+
+
+                                                                                                   individual      inherited
+COST CENTRE                   MODULE                   SRC                      no.     entries  %time %alloc   %time %alloc
+
+MAIN                          MAIN                     <built-in>               109          0    0.0    0.0   100.0  100.0
+ CAF                          GHC.IO.Handle.Text       <entire-module>          207          0    0.0    0.0     0.0    0.0
+ CAF                          GHC.IO.Handle.FD         <entire-module>          146          0    0.0    0.0     0.0    0.0
+ CAF                          GHC.IO.Encoding.CodePage <entire-module>          137          0    0.0    0.0     0.0    0.0
+ CAF                          GHC.IO.Encoding          <entire-module>          136          0    0.0    0.0     0.0    0.0
+ CAF                          Main                     <entire-module>          116          0    0.0    0.0   100.0  100.0
+  hasSolution                 Main                     hf-12.hs:58:1-70         236          1    0.0    0.0     0.0    0.0
+  isFilled                    Main                     hf-12.hs:38:1-69         233          1    0.0    0.0     0.0    0.0
+  isSolved                    Main                     hf-12.hs:42:1-57         231          1    0.0    0.0     0.0    0.0
+  main                        Main                     hf-12.hs:106:1-37        218          1    0.0    0.0   100.0  100.0
+   solve                      Main                     hf-12.hs:(79,1)-(82,53)  220         60    0.0    0.0   100.0  100.0
+    isSudokuPuzzle            Main                     hf-12.hs:(31,1)-(32,108) 221         60    0.0    0.1     4.9    1.9
+     allUnique                Main                     hf-12.hs:(27,1)-(28,54)  224      11862    0.0    0.2     0.0    0.2
+     isSudokuPuzzle.\         Main                     hf-12.hs:31:41-94        223       3414    0.0    0.2     0.0    0.2
+     numsInBlock              Main                     hf-12.hs:22:1-64         229        540    0.0    0.5     4.9    1.2
+      posToBlock              Main                     hf-12.hs:13:1-45         230      30726    4.9    0.7     4.9    0.7
+     numsInCol                Main                     hf-12.hs:10:1-59         227        540    0.0    0.1     0.0    0.1
+      numsInCol.\             Main                     hf-12.hs:10:51-56        228      30726    0.0    0.0     0.0    0.0
+     numsInRow                Main                     hf-12.hs:7:1-59          225        540    0.0    0.1     0.0    0.1
+      numsInRow.\             Main                     hf-12.hs:7:51-56         226      30726    0.0    0.0     0.0    0.0
+    step                      Main                     hf-12.hs:(69,1)-(76,39)  235         58    0.0    0.0    95.1   98.0
+     step.p                   Main                     hf-12.hs:74:5-33         238         58    0.0    0.0    95.1   97.9
+      possibleNumsForBlankPos Main                     hf-12.hs:54:1-80         239         58    0.0    0.0    95.1   97.9
+       possibleNumsOnPos      Main                     hf-12.hs:51:1-94         241       1446    0.0    2.0    95.1   97.7
+        isSudokuPuzzle        Main                     hf-12.hs:(31,1)-(32,108) 242       7601    4.9   10.1    95.1   95.6
+         allUnique            Main                     hf-12.hs:(27,1)-(28,54)  244     662765    9.8   11.0     9.8   11.0
+         isSudokuPuzzle.\     Main                     hf-12.hs:31:41-94        243     353089   17.1   17.1    17.1   17.1
+         numsInRow            Main                     hf-12.hs:7:1-59          245      53902    4.9    7.9    14.6    7.9
+          numsInRow.\         Main                     hf-12.hs:7:51-56         246    2396187    9.8    0.0     9.8    0.0
+         numsInCol            Main                     hf-12.hs:10:1-59         247      35862    2.4    4.9     2.4    4.9
+          numsInCol.\         Main                     hf-12.hs:10:51-56        248    1524734    0.0    0.0     0.0    0.0
+         numsInBlock          Main                     hf-12.hs:22:1-64         249      26017   17.1   17.3    46.3   44.6
+          posToBlock          Main                     hf-12.hs:13:1-45         250    1130041   29.3   27.3    29.3   27.3
+       blankPositions         Main                     hf-12.hs:48:1-88         240         58    0.0    0.2     0.0    0.2
+     step.u                   Main                     hf-12.hs:76:5-39         253         58    0.0    0.0     0.0    0.0
+      uniqueNumForBlankPos    Main                     hf-12.hs:61:1-80         255          0    0.0    0.0     0.0    0.0
+       uniqueNumForBlankPos.\ Main                     hf-12.hs:61:42-47        256         57    0.0    0.0     0.0    0.0
+     step.(...)               Main                     hf-12.hs:75:5-21         258          1    0.0    0.0     0.0    0.0
+     step.pl                  Main                     hf-12.hs:75:5-21         257          1    0.0    0.0     0.0    0.0
+     step.pp                  Main                     hf-12.hs:75:5-21         259          1    0.0    0.0     0.0    0.0
+     hasSolution              Main                     hf-12.hs:58:1-70         237          0    0.0    0.0     0.0    0.0
+     isSolved                 Main                     hf-12.hs:42:1-57         251          0    0.0    0.0     0.0    0.0
+      isFilled                Main                     hf-12.hs:38:1-69         252          0    0.0    0.0     0.0    0.0
+    isSolved                  Main                     hf-12.hs:42:1-57         232          0    0.0    0.0     0.0    0.1
+     isSudokuPuzzle           Main                     hf-12.hs:(31,1)-(32,108) 261          2    0.0    0.0     0.0    0.1
+      allUnique               Main                     hf-12.hs:(27,1)-(28,54)  263        540    0.0    0.0     0.0    0.0
+      isSudokuPuzzle.\        Main                     hf-12.hs:31:41-94        262        162    0.0    0.0     0.0    0.0
+      numsInBlock             Main                     hf-12.hs:22:1-64         268         18    0.0    0.0     0.0    0.1
+       posToBlock             Main                     hf-12.hs:13:1-45         269       1458    0.0    0.0     0.0    0.0
+      numsInCol               Main                     hf-12.hs:10:1-59         266         18    0.0    0.0     0.0    0.0
+       numsInCol.\            Main                     hf-12.hs:10:51-56        267       1458    0.0    0.0     0.0    0.0
+      numsInRow               Main                     hf-12.hs:7:1-59          264         18    0.0    0.0     0.0    0.0
+       numsInRow.\            Main                     hf-12.hs:7:51-56         265       1458    0.0    0.0     0.0    0.0
+     isFilled                 Main                     hf-12.hs:38:1-69         234          0    0.0    0.0     0.0    0.0
+      allUnique               Main                     hf-12.hs:(27,1)-(28,54)  260        164    0.0    0.0     0.0    0.0
+  sudoku2                     Main                     hf-12.hs:(96,1)-(104,41) 222          1    0.0    0.0     0.0    0.0
+  uniqueNumForBlankPos        Main                     hf-12.hs:61:1-80         254          1    0.0    0.0     0.0    0.0
+ main                         Main                     hf-12.hs:106:1-37        219          0    0.0    0.0     0.0    0.0
+-12.hs:106:1-37        219          0    2.1    0.0     2.1    0.0
+-12.hs:34:1-69         235          0    0.0    0.0     0.0    0.1
+      allUnique               Main                     hf-12.hs:26:1-75         263          0    0.0    0.0     0.0    0.1
+       allUnique.\            Main                     hf-12.hs:26:45-71        264        162    0.0    0.1     0.0    0.1
+  sudoku2                     Main                     hf-12.hs:(92,1)-(100,41) 222          1    0.0    0.0     0.0    0.0
+  uniqueNumForBlankPos        Main                     hf-12.hs:57:1-80         256          1    0.0    0.0     0.0    0.0
+ main                         Main                     hf-12.hs:102:1-37        219          0    0.0    0.0     0.0    0.0
