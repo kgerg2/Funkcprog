@@ -4,6 +4,7 @@ import Control.Monad (ap)
 import Data.String
 import Data.Either
 import Data.Maybe
+import Data.List
 
 newtype State s a = State {runState :: s -> (a, s)}
   deriving Functor
@@ -76,6 +77,7 @@ false = BoolLit False
 type Val = Either Int Bool
 type Env = [(Name, Val)]
 
+
 tErr :: a
 tErr = error "Type error"
 
@@ -85,25 +87,18 @@ evalExp (Mul x y)   e = Left  $ fromLeft tErr (evalExp x e) * fromLeft tErr (eva
 evalExp (Not x)     e = Right $ not (fromRight tErr (evalExp x e))
 evalExp (IntLit x)  _ = Left  $ x
 evalExp (BoolLit x) _ = Right $ x
-evalExp (Eq x y)    e = Right $ evalExp x e == evalExp y e
+evalExp (Eq x y)    e = Right $ case evalExp x e of Left  v -> v == fromLeft  tErr (evalExp y e)
+                                                    Right v -> v == fromRight tErr (evalExp y e)
 evalExp (Lt x y)    e = Right $ fromLeft  tErr (evalExp x e) <  fromLeft  tErr (evalExp y e)
 evalExp (And x y)   e = Right $ fromRight tErr (evalExp x e) && fromRight tErr (evalExp y e)
 evalExp (Or x y)    e = Right $ fromRight tErr (evalExp x e) || fromRight tErr (evalExp y e)
 evalExp (Var x)     e = fromMaybe (error "Undefined variable") (lookup x e)
 
-modifyFound :: (a -> a) -> (a -> Bool) -> [a] -> Maybe [a]
-modifyFound _ _ [] = Nothing
-modifyFound f p (x:xs)
-  | p x       = Just $ f x : xs
-  | otherwise = (:) <$> Just x <*> modifyFound f p xs
-
 evalStatement :: Statement -> State Env ()
 evalStatement (x := ex) = do
   e <- get
-  let new = (x, evalExp ex e)
-  case modifyFound (const new) ((x ==) . fst) e of
-    Nothing -> put $ new : e
-    Just e' -> put $ e'
+  put $ (x, evalExp ex e) : deleteBy ((. fst) . (==) . fst) (x, undefined) e
+--   put $ (x, evalExp ex e) : deleteBy (\(a, _) (b, _) -> (a == b)) (x, undefined) e
 evalStatement (If ex t f) = do
   e <- get
   if fromRight tErr (evalExp ex e)
@@ -118,6 +113,7 @@ evalStatement (While ex p) = do
 
 evalProgram :: Program -> State Env ()
 evalProgram p = mapM_ evalStatement p
+
 
 -- Program futtatása üres környezetből indulva:
 runProgram :: Program -> Env
