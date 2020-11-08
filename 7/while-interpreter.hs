@@ -94,10 +94,18 @@ evalExp (And x y)   e = Right $ fromRight tErr (evalExp x e) && fromRight tErr (
 evalExp (Or x y)    e = Right $ fromRight tErr (evalExp x e) || fromRight tErr (evalExp y e)
 evalExp (Var x)     e = fromMaybe (error "Undefined variable") (lookup x e)
 
+updEnv :: Name -> Val -> Env -> Env
+updEnv x v [] = [(x, v)]
+updEnv x v ((x', v'):env)
+  | x == x'   = (x', v) : env
+  | otherwise = (x', v') : updEnv x v env
+
 evalStatement :: Statement -> State Env ()
 evalStatement (x := ex) = do
-  e <- get
-  put $ (x, evalExp ex e) : deleteBy ((. fst) . (==) . fst) (x, undefined) e
+  modify (\e -> updEnv x (evalExp ex e) e)
+-- evalStatement (x := ex) = do
+--   e <- get
+--   put $ (x, evalExp ex e) : deleteBy ((. fst) . (==) . fst) (x, undefined) e
 --   put $ (x, evalExp ex e) : deleteBy (\(a, _) (b, _) -> (a == b)) (x, undefined) e
 evalStatement (If ex t f) = do
   e <- get
