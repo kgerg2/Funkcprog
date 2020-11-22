@@ -18,10 +18,16 @@ supervisor_init(Workers, Fun) ->
 
 supervisor(Refs, Fun) ->
     receive
-        {'DOWN', _, _, _, normal} -> supervisor(Refs, Fun);
-        {'DOWN', Ref, process, Pid, Reason} -> 
-            {_, NewRef} = spawn_monitor(Fun),
-            supervisor([NewRef|Refs], Fun)
+        {'DOWN', _  , _      , _, normal} -> supervisor(Refs, Fun);
+        {'DOWN', Ref, process, _, _     } ->
+            case lists:member(Ref, Refs) of
+                true ->
+                    {_, NewRef} = spawn_monitor(Fun),
+                    supervisor([NewRef|lists:delete(Ref, Refs)], Fun);
+                false ->
+                    io:format("some process died"),
+                    supervisor(Refs, Fun)
+            end
     end.
 
 collector(Result) ->
