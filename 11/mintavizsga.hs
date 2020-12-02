@@ -158,9 +158,11 @@ anyChar = satisfy (const True)
 data Exp
   = Add Exp Exp    -- a + b
   | Mul Exp Exp    -- a * b
+  | Div Exp Exp
   | Var Name       -- x
   | IntLit Int
   | BoolLit Bool   -- true|false
+  | DoubleLit Double
   | Not Exp        -- not e
   | And Exp Exp    -- a && b
   | Or Exp Exp     -- a || b
@@ -229,11 +231,22 @@ pBoolLit :: Parser Bool
 pBoolLit = (True  <$ string' "true")
        <|> (False <$ string' "false")
 
+pDoubleLit :: Parser Double
+-- pDoubleLit = read <$> ((++) <$> ((char '-' <|> pure ()) *> some (satisfy isDigit)) <*> (char '.' *> some (satisfy isDigit) <* ws))
+pDoubleLit = do
+  c <- "-" <$ char '-' <|> "" <$ pure ()
+  a <- some (satisfy isDigit)
+  char '.'
+  b <- some (satisfy isDigit)
+  ws
+  pure $ read (concat [c, a, ".", b])
+
 pIntLit :: Parser Int
 pIntLit = read <$> (some (satisfy isDigit) <* ws)
 
 pAtom :: Parser Exp
 pAtom = (BoolLit <$> pBoolLit)
+      <|> (DoubleLit <$> pDoubleLit)
       <|> (IntLit <$> pIntLit)
       <|> (Var <$> pIdent)
       <|> (char' '(' *> pExp <* char' ')')
@@ -243,8 +256,11 @@ pNot =
       (Not <$> (string' "not" *> pAtom))
   <|> pAtom
 
+pDiv :: Parser Exp
+pDiv = foldl1 Div <$> sepBy1 pNot (char' '/')
+
 pMul :: Parser Exp
-pMul = foldl1 Mul <$> sepBy1 pNot (char' '*')
+pMul = foldl1 Mul <$> sepBy1 pDiv (char' '*')
 
 pAdd :: Parser Exp
 pAdd = foldl1 Add <$> sepBy1 pMul (char' '+')
@@ -347,6 +363,7 @@ evalExp e = case e of
       Just v  -> pure v
   IntLit n -> pure (Left n)
   BoolLit b -> pure (Right b)
+  DoubleLit d -> pure ()
   Not e -> do
     v <- evalExp e
     case v of
